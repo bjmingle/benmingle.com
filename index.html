@@ -308,16 +308,14 @@
       gap: .5rem;
     }
     .stack-group-title svg { width: 14px; stroke: var(--muted); }
-    .tag-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0; }
     .tag {
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      color: var(--accent);
-      background: rgba(20, 184, 166, .08);
-      border: 1px solid rgba(20, 184, 166, .2);
-      padding: .2rem .55rem;
-      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: .85rem;
+      color: var(--muted);
     }
+    .tag::after { content: ',\00a0'; }
+    .tag:last-child::after { content: ''; }
 
     /* ── Projects ── */
     #projects { border-top: 1px solid var(--border); }
