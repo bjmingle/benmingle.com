@@ -355,7 +355,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 4rem; }
       .life-row { grid-template-columns: 60px 1fr; gap: 1.5rem; }
       .life-desc { grid-column: 1 / -1; }
-      .nav-links {
+      .nav-links-wrapper {
         display: none;
         position: fixed;
         top: 80px; 
@@ -363,14 +363,20 @@
         width: 100vw;
         height: calc(100vh - 80px);
         background: white;
+        z-index: 9999;
+        border-top: 1px solid var(--border);
+      }
+      .nav-links {
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 3.5rem;
-        z-index: 9999;
-        border-top: 1px solid var(--border);
+        width: 100%;
+        height: 100%;
+        list-style: none;
       }
-      #nav-toggle-check:checked ~ .nav-links { display: flex; }
+      #nav-toggle-check:checked ~ .nav-links-wrapper { display: flex; }
       .nav-toggle { display: flex; z-index: 10000; }
       #nav-toggle-check:checked ~ .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
       #nav-toggle-check:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
@@ -399,13 +405,15 @@
         <span></span>
       </label>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#life">Life</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="mailto:benjaminjmingle@gmail.com">Contact</a></li>
-      </ul>
+      <label for="nav-toggle-check" class="nav-links-wrapper">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#life">Life</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="mailto:benjaminjmingle@gmail.com">Contact</a></li>
+        </ul>
+      </label>
     </div>
   </nav>
 
