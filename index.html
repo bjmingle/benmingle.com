@@ -96,7 +96,9 @@
       display: block;
       -webkit-tap-highlight-color: transparent;
     }
-    .nav-logo:hover, .nav-logo:active { color: var(--text); }
+    .nav-logo:active { color: var(--magenta); }
+    @media (hover: hover) { .nav-logo:hover { color: var(--magenta); } }
+    @media (hover: none) { .nav-logo:hover { color: var(--text); } }
     .nav-logo span { 
       background: var(--gradient-tm);
       -webkit-background-clip: text;
