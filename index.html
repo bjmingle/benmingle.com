@@ -350,6 +350,8 @@
     .social-links svg { width: 24px; }
 
     /* ── Mobile ── */
+    #nav-toggle-check { display: none; }
+
     @media (max-width: 900px) {
       section { padding: 6rem 0; }
       .about-grid { grid-template-columns: 1fr; gap: 4rem; }
@@ -366,11 +368,11 @@
         gap: 3rem;
         z-index: 1000;
       }
-      .nav-links.active { display: flex; }
+      #nav-toggle-check:checked ~ .nav-links { display: flex; }
       .nav-toggle { display: flex; }
-      .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-      .nav-toggle.active span:nth-child(2) { opacity: 0; }
-      .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+      #nav-toggle-check:checked ~ .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      #nav-toggle-check:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
+      #nav-toggle-check:checked ~ .nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
       h1 { font-size: 3.5rem; }
     }
   </style>
@@ -386,11 +388,14 @@
   <nav>
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">benmingle<span>.</span>com</a>
-      <div class="nav-toggle" id="mobile-toggle">
+      
+      <input type="checkbox" id="nav-toggle-check">
+      <label for="nav-toggle-check" class="nav-toggle">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </label>
+
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#life">Life</a></li>
@@ -602,49 +607,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Intersection Observer for Reveal Animations
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = 'translateY(0)';
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(section => {
-          section.style.opacity = 0;
-          section.style.transform = 'translateY(30px)';
-          section.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
-          observer.observe(section);
-        });
-      }
-
-      // Mobile menu toggle
-      const mobileToggle = document.getElementById('mobile-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const navItems = document.querySelectorAll('.nav-links a');
-
-      if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
-          mobileToggle.classList.toggle('active');
-          navLinks.classList.toggle('active');
-        });
-
-        navItems.forEach(item => {
-          item.addEventListener('click', () => {
-            mobileToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-          });
-        });
-      }
-    });
-  </script>
 
 </body>
 </html>
