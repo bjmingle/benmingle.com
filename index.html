@@ -572,7 +572,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
             Self-Hosted Services
           </div>
-          <p class="stack-desc">Coolify, benmingle.com, AMP, Ollama, Open WebUI, Grafana, Prometheus, Loki, Home Assistant, Gitea, Immich, UniFi, Nextcloud, Vaultwarden, Homarr, Mealie, TeamSpeak, RomM, Authentik, Paperless, Joplin</p>
+          <p class="stack-desc">Coolify, benmingle.com, AMP, Ollama, Open WebUI, Grafana, Prometheus, Loki, Home Assistant, Gitea, Immich, UniFi, Nextcloud, Vaultwarden, Webtop, Homarr, Mealie, LubeLogger, TeamSpeak, RomM, Authentik, Stirling PDF, Paperless, Joplin, Bar-Assistant, SparkyFitness, Ntfy, Uptime Kuma, code-server</p>
         </div>
 
       </div>
@@ -594,6 +594,26 @@
           </div>
           <p class="project-desc">
             A Proxmox-based home lab running 20+ self-hosted services with Docker, IDS/IPS, Tailscale, and an NVIDIA RTX A2000 12GB for local AI inference. Monitored end-to-end with Prometheus, Loki, and Grafana.
+          </p>
+        </div>
+
+        <div class="bento-item bento-span-2">
+          <div class="project-top">
+            <div class="project-icon">⚙️</div>
+            <h3>Infrastructure as Code</h3>
+          </div>
+          <p class="project-desc">
+            The entire lab rebuilds from bare metal with one Ansible playbook. 23 LXC containers and a VM, provisioned, bootstrapped, and joined to the tailnet unattended in about 90 minutes. Secrets live in Ansible Vault, backups run nightly to a Proxmox Backup Server, and nothing updates itself unless I say so.
+          </p>
+        </div>
+
+        <div class="bento-item bento-span-2">
+          <div class="project-top">
+            <div class="project-icon">🤖</div>
+            <h3>Local AI Coding</h3>
+          </div>
+          <p class="project-desc">
+            A LiteLLM proxy fronting Ollama with an Anthropic-compatible endpoint, so Claude Code and VS Code point at my own GPU instead of someone's API. Paired with a browser-based code-server IDE wired to the same backend — the whole loop runs on hardware in my basement.
           </p>
         </div>
 
